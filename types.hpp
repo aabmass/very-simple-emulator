@@ -34,7 +34,9 @@ enum class State {
     UNINITIALIZED,
 
     IRLD,
-    DECODE,
+
+    /* instructions */
+    NOOP,
 
     LD_IMD_A,
     LD_IMD_B,

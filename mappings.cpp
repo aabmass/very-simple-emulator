@@ -1,17 +1,20 @@
 #include "mappings.hpp"
 
 std::unordered_map<IRReg, State> ir_map = {
+    /* noop */
+    {0x00, State::NOOP},
+
     /* load immediate value instructions */
-    {0x00, State::LD_IMD_A},
-    {0x01, State::LD_IMD_B},
-    {0x02, State::LD_IMD_X},
-    {0x03, State::LD_IMD_Y},
+    {0x01, State::LD_IMD_A},
+    {0x02, State::LD_IMD_B},
+    {0x03, State::LD_IMD_X},
+    {0x04, State::LD_IMD_Y},
 
     /* load from immediate address instructions */
-    {0x04, State::LD_IMD_ADDR_A},
-    {0x05, State::LD_IMD_ADDR_B},
-    {0x06, State::LD_IMD_ADDR_X},
-    {0x07, State::LD_IMD_ADDR_Y},
+    {0x05, State::LD_IMD_ADDR_A},
+    {0x06, State::LD_IMD_ADDR_B},
+    {0x07, State::LD_IMD_ADDR_X},
+    {0x08, State::LD_IMD_ADDR_Y},
 
     /* increment instructions here */
     {0x20, State::INA},

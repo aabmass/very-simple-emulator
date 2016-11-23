@@ -67,7 +67,10 @@ bool CPUController::execute_instr() {
 
     s = get_next_state(s, vm.proc.ir);
     while (s != State::IRLD) {
-        if (s == State::LD_IMD_A || s == State::LD_IMD_B ||
+        if (s == State::NOOP) {
+            // noop dammit!
+        }
+        else if (s == State::LD_IMD_A || s == State::LD_IMD_B ||
                 s == State::LD_IMD_X || s == State::LD_IMD_Y) {
 
             execute_load_immediate();
