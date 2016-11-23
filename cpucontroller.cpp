@@ -66,31 +66,29 @@ bool CPUController::execute_instr() {
     }
 
     s = get_next_state(s, vm.proc.ir);
-    while (s != State::IRLD) {
-        if (s == State::NOOP) {
-            // noop dammit!
-        }
-        else if (s == State::LD_IMD_A || s == State::LD_IMD_B ||
-                s == State::LD_IMD_X || s == State::LD_IMD_Y) {
-
-            execute_load_immediate();
-        }
-        else if (s == State::LD_IMD_ADDR_A || s == State::LD_IMD_ADDR_B ||
-                s == State::LD_IMD_ADDR_X || s == State::LD_IMD_ADDR_Y) {
-            
-            execute_load_immediate_address();
-        }
-        else if (s == State::INA || s == State::INB ||
-                s == State::INX  || s == State::INY ) {
-
-            execute_increment();
-        }
-        else if (s == State::SUM_BA) execute_sum_ba();
-        else if (s == State::BRK) { // break pseudo instruction
-            return false;
-        }
-
-        s = get_next_state(s, vm.proc.ir);
+    if (s == State::NOOP) {
+        // noop dammit!
     }
+    else if (s == State::LD_IMD_A || s == State::LD_IMD_B ||
+            s == State::LD_IMD_X || s == State::LD_IMD_Y) {
+
+        execute_load_immediate();
+    }
+    else if (s == State::LD_IMD_ADDR_A || s == State::LD_IMD_ADDR_B ||
+            s == State::LD_IMD_ADDR_X || s == State::LD_IMD_ADDR_Y) {
+
+        execute_load_immediate_address();
+    }
+    else if (s == State::INA || s == State::INB ||
+            s == State::INX  || s == State::INY ) {
+
+        execute_increment();
+    }
+    else if (s == State::SUM_BA) execute_sum_ba();
+    else if (s == State::BRK) { // break pseudo instruction
+        return false;
+    }
+
+    s = get_next_state(s, vm.proc.ir);
     return true;
 }
