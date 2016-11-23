@@ -21,15 +21,14 @@ make
 
 Executing
 ------
-To run the emulator, write a binary file `rom.bin` in the directory where you
-run it from. This is how main.cpp is set up right now. Each opcode is a byte
-wide (the instruction register gets 8 bits). See the sample rom.bin in a hex
-editor, or run `hexdump`.
+To run the emulator, write a binary file `rom.bin` and pass its path to `main`.
+Each opcode is a byte wide (the instruction register gets 8 bits). See the
+sample rom.bin in a hex editor, or run `hexdump`.
 
 So to run the sample program:
 ```sh
 # from the source root with binary built in build directory
-./build/main
+./build/main <path-to-rom>
 ```
 
 Output
