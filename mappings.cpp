@@ -12,6 +12,15 @@ std::unordered_map<IRReg, State> ir_map = {
     {0x05, State::LD_IMD_ADDR_B},
     {0x06, State::LD_IMD_ADDR_X},
     {0x07, State::LD_IMD_ADDR_Y},
+
+    /* increment instructions here */
+    {0x20, State::INA},
+    {0x21, State::INB},
+    {0x22, State::INX},
+    {0x23, State::INY},
+    
+    /* arithmetic instructions here. these opcodes may change */
+    {0x30, State::SUM_BA},
 };
 
 std::unordered_map<State, RegisterName> reg_for_state = {
@@ -24,4 +33,9 @@ std::unordered_map<State, RegisterName> reg_for_state = {
     {State::LD_IMD_ADDR_B, RegisterName::B},
     {State::LD_IMD_ADDR_X, RegisterName::X},
     {State::LD_IMD_ADDR_Y, RegisterName::Y},
+
+    {State::INA, RegisterName::A},
+    {State::INB, RegisterName::B},
+    {State::INX, RegisterName::X},
+    {State::INY, RegisterName::Y},
 };

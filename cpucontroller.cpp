@@ -49,6 +49,16 @@ void CPUController::execute_load_immediate_address() {
     vm.pc_inc();
 }
 
+void CPUController::execute_increment() {
+    // put it into register of choice
+    OtherReg& r = reg_pertaining_to_state(s);
+    ++r;
+}
+
+void CPUController::execute_sum_ba() {
+    vm.proc.a = vm.proc.a + vm.proc.b;
+}
+
 void CPUController::execute_instr() {
     if (s == State::IRLD) {
         vm.proc.ir = vm.get_mem(vm.proc.pc);
@@ -67,6 +77,12 @@ void CPUController::execute_instr() {
             
             execute_load_immediate_address();
         }
+        else if (s == State::INA || s == State::INB ||
+                s == State::INX  || s == State::INY ) {
+
+            execute_increment();
+        }
+        else if (s == State::SUM_BA) execute_sum_ba();
 
         s = get_next_state(s, vm.proc.ir);
     }

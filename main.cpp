@@ -10,11 +10,26 @@ int main(/* int argc, char *argv[] */) {
 
     VM vm(rom);
 
-    vm.execute_instr();
-    vm.execute_instr();
-    vm.execute_instr();
-    
+    // loads
     std::cout << vm << std::endl;
-    
+    vm.execute_instr();
+    std::cout << vm << std::endl;
+    vm.execute_instr();
+    std::cout << vm << std::endl;
+    vm.execute_instr();
+    std::cout << vm << std::endl;
+    vm.execute_instr();
+    std::cout << vm << std::endl;
+    vm.execute_instr();
+    std::cout << vm << std::endl;
+    vm.execute_instr();
+    std::cout << vm << std::endl;
+    vm.execute_instr();
+    std::cout << vm << std::endl;
+    vm.execute_instr();
+    std::cout << vm << std::endl;
+    vm.execute_instr();
+    std::cout << vm << std::endl;
+
     return 0;
 }

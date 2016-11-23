@@ -16,6 +16,8 @@ private:
     /* specific bits of code for executing types of instructions */
     void execute_load_immediate();
     void execute_load_immediate_address();
+    void execute_increment();
+    void execute_sum_ba();
 
 public:
     CPUController(VM& vm);

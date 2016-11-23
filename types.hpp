@@ -44,7 +44,14 @@ enum class State {
     LD_IMD_ADDR_A,
     LD_IMD_ADDR_B,
     LD_IMD_ADDR_X,
-    LD_IMD_ADDR_Y
+    LD_IMD_ADDR_Y,
+
+    INA,
+    INB,
+    INX,
+    INY,
+
+    SUM_BA,
 };
 
 /** this method gets the underlying value for an enum value */
