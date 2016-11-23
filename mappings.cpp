@@ -1,4 +1,4 @@
-#include "irmap.hpp"
+#include "mappings.hpp"
 
 std::map<IRReg, State> ir_map = {
     {0x00, State::LD_IMD_A},

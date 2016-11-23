@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 #include "types.hpp"
-#include "irmap.hpp"
+#include "mappings.hpp"
 
 class VM {
 private:
