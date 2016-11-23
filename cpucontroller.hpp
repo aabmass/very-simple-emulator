@@ -10,10 +10,12 @@ private:
     State s;
     VM& vm;
 
-    // pure function, just because
     State get_next_state(State s, IRReg ir);
-
     OtherReg& reg_pertaining_to_state(State s);
+
+    /* specific bits of code for executing types of instructions */
+    void execute_load_immediate();
+    void execute_load_immediate_address();
 
 public:
     CPUController(VM& vm);

@@ -9,6 +9,7 @@ set(SOURCES
     mappings.cpp
     types.cpp
     vm.cpp
+    util.cpp
 )
 
 set(HEADERS
@@ -16,6 +17,7 @@ set(HEADERS
     mappings.hpp
     types.hpp
     vm.hpp
+    util.hpp
 )
 
 # use below to link c++ std statically

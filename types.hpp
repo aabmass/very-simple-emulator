@@ -39,15 +39,22 @@ enum class State {
     LD_IMD_A,
     LD_IMD_B,
     LD_IMD_X,
-    LD_IMD_Y
+    LD_IMD_Y,
+
+    LD_IMD_ADDR_A,
+    LD_IMD_ADDR_B,
+    LD_IMD_ADDR_X,
+    LD_IMD_ADDR_Y
 };
 
+/** this method gets the underlying value for an enum value */
 template <typename Enumeration>
 auto as_integer(Enumeration const value)
     -> typename std::underlying_type<Enumeration>::type
 {
     return static_cast<typename std::underlying_type<Enumeration>::type>(value);
 }
-std::ostream& operator<<(std::ostream& os, State& pc);
+
+std::ostream& operator<<(std::ostream& os, State& s);
 
 #endif /* end of include guard: TYPES_HPP_X1G387PI */
