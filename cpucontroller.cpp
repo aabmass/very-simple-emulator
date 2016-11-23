@@ -59,7 +59,7 @@ void CPUController::execute_sum_ba() {
     vm.proc.a = vm.proc.a + vm.proc.b;
 }
 
-void CPUController::execute_instr() {
+bool CPUController::execute_instr() {
     if (s == State::IRLD) {
         vm.proc.ir = vm.get_mem(vm.proc.pc);
         vm.pc_inc();
@@ -83,7 +83,11 @@ void CPUController::execute_instr() {
             execute_increment();
         }
         else if (s == State::SUM_BA) execute_sum_ba();
+        else if (s == State::BRK) { // break pseudo instruction
+            return false;
+        }
 
         s = get_next_state(s, vm.proc.ir);
     }
+    return true;
 }

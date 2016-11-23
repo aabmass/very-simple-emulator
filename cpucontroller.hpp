@@ -22,7 +22,8 @@ private:
 public:
     CPUController(VM& vm);
 
-    void execute_instr();
+    /* returns whether or not to continue executing */
+    bool execute_instr();
 };
 
 #endif /* end of include guard: CPUCONTROLLER_HPP_8LJZV9M7 */

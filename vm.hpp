@@ -17,7 +17,7 @@ public:
     VM(std::vector<Byte> const& rom_contents);
     virtual ~VM();
 
-    void execute_instr();
+    bool execute_instr();
     void pc_inc();
 
     OtherReg get_reg(RegisterName rn);

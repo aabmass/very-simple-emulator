@@ -17,8 +17,8 @@ VM::~VM() {
     delete[] ram;
 }
 
-void VM::execute_instr() {
-    controller.execute_instr();
+bool VM::execute_instr() {
+    return controller.execute_instr();
 }
 
 void VM::pc_inc() {

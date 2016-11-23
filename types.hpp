@@ -52,6 +52,8 @@ enum class State {
     INY,
 
     SUM_BA,
+
+    BRK // the break pseudo instruction
 };
 
 /** this method gets the underlying value for an enum value */
