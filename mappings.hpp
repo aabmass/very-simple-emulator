@@ -1,5 +1,5 @@
-#ifndef MAPPINGS_H_
-#define MAPPINGS_H_
+#ifndef MAPPINGS_HPP_HDUR0N3L
+#define MAPPINGS_HPP_HDUR0N3L
 
 #include <map>
 #include "types.hpp"
@@ -7,4 +7,4 @@
 extern std::map<IRReg, State> ir_map;
 extern std::map<State, RegisterName> reg_for_state;
 
-#endif /* ifndef MAPPINGS_H_ */
+#endif /* end of include guard: MAPPINGS_HPP_HDUR0N3L */

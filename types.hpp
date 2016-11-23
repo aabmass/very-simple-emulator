@@ -1,5 +1,5 @@
-#ifndef TYPES_H_
-#define TYPES_H_
+#ifndef TYPES_HPP_X1G387PI
+#define TYPES_HPP_X1G387PI
 
 #include <cstdint>
 #include <ostream>
@@ -50,23 +50,4 @@ auto as_integer(Enumeration const value)
 }
 std::ostream& operator<<(std::ostream& os, State& pc);
 
-class VM;
-
-class CPUController {
-private:
-    State s;
-    VM& vm;
-
-    // pure function, just because
-    State get_next_state(State s, IRReg ir);
-
-    OtherReg& reg_pertaining_to_state(State s);
-
-public:
-    CPUController(VM& vm);
-
-    void execute_instr();
-};
-
-
-#endif /* ifndef TYPES_H_ */
+#endif /* end of include guard: TYPES_HPP_X1G387PI */
