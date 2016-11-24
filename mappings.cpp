@@ -27,6 +27,8 @@ std::unordered_map<IRReg, State> ir_map = {
 
     /* jmp/branch instructions here */
     {0x80, State::JMP},
+    {0x81, State::BNE_X},
+    {0x82, State::BNE_Y},
 
     /* special instructions here */
     // this guy is a pseudo instruction. Just for exiting the program in this
@@ -49,4 +51,7 @@ std::unordered_map<State, RegisterName> reg_for_state = {
     {State::INB, RegisterName::B},
     {State::INX, RegisterName::X},
     {State::INY, RegisterName::Y},
+
+    {State::BNE_X, RegisterName::X},
+    {State::BNE_Y, RegisterName::Y},
 };

@@ -64,6 +64,19 @@ void CPUController::execute_jmp() {
     vm.proc.pc = create_addr_from_bytes(addr_low, addr_high);
 }
 
+void CPUController::execute_bne() {
+    // read the mem first since we have to increment pc anyway
+    Byte addr_low = vm.get_mem(vm.proc.pc);
+    vm.pc_inc();
+    Byte addr_high = vm.get_mem(vm.proc.pc);
+
+    OtherReg& r = reg_pertaining_to_state(s);
+    if (r != 0) {
+        // only perform the jump (change pc) the register in question == 0
+        vm.proc.pc = create_addr_from_bytes(addr_low, addr_high);
+    }
+}
+
 void CPUController::execute_sum_ba() {
     vm.proc.a = vm.proc.a + vm.proc.b;
 }
@@ -95,6 +108,7 @@ bool CPUController::execute_instr() {
     }
     else if (s == State::SUM_BA) execute_sum_ba();
     else if (s == State::JMP) execute_jmp();
+    else if (s == State::BNE_X || s == State::BNE_Y) execute_bne();
     else if (s == State::BRK) { // break pseudo instruction
         return false;
     }
