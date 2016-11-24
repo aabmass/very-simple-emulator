@@ -21,20 +21,23 @@ make
 
 Executing
 ------
-To run the emulator, write a binary file `rom.bin` and pass its path to `main`.
+To run the emulator, write a binary file `smileys.bin` and pass its path to `main`.
 Each opcode is a byte wide (the instruction register gets 8 bits). See the
-sample rom.bin in a hex editor, or run `hexdump`.
+samples in the sample directory, open them in a hex editor or run `hexdump`
+etc.
 
-So to run the sample program:
+So to run the sample smiley program:
 ```sh
 # from the source root with binary built in build directory
-./build/main rom.bin
+./build/main sample-programs/smileys.bin
 ```
 
 Output
 -------
-Currently, `main()` runs the program and then prints the state of the virtual
-machine's registers when it's "done". By done, I mean the pseudo instruction (just for emulation) `BRK` (opcode `0xFF`) is encountered. The sample program `rom.bin` prints ten smiley's!
+Currently, `main()` runs the program passed as its first arg and then prints
+the state of the virtual machine's registers when it's "done". By done, I mean
+the pseudo instruction (just for emulation) `BRK` (opcode `0xFF`) is
+encountered. The sample program `smileys.bin` prints ten smiley's!
 
 ```
 :)
