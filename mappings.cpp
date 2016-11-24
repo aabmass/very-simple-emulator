@@ -31,6 +31,9 @@ std::unordered_map<IRReg, State> ir_map = {
     {0x82, State::BNE_Y},
 
     /* special instructions here */
+    // print to standard out the value in the immediate address
+    {0xE0, State::STDOUT_IMD_ADDR},
+
     // this guy is a pseudo instruction. Just for exiting the program in this
     // emulator
     {0xFF, State::BRK}
