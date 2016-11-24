@@ -17,6 +17,7 @@ private:
     void execute_load_immediate();
     void execute_load_immediate_address();
     void execute_increment();
+    void execute_jmp();
     void execute_sum_ba();
 
 public:

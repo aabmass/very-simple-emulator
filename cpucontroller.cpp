@@ -1,6 +1,7 @@
 #include "cpucontroller.hpp"
 #include "vm.hpp"
 #include "mappings.hpp"
+#include "util.hpp"
 
 State CPUController::get_next_state(State s, IRReg ir) {
     if (s == State::IRLD)
@@ -55,6 +56,14 @@ void CPUController::execute_increment() {
     ++r;
 }
 
+void CPUController::execute_jmp() {
+    Byte addr_low = vm.get_mem(vm.proc.pc);
+    vm.pc_inc();
+    Byte addr_high = vm.get_mem(vm.proc.pc);
+
+    vm.proc.pc = create_addr_from_bytes(addr_low, addr_high);
+}
+
 void CPUController::execute_sum_ba() {
     vm.proc.a = vm.proc.a + vm.proc.b;
 }
@@ -85,6 +94,7 @@ bool CPUController::execute_instr() {
         execute_increment();
     }
     else if (s == State::SUM_BA) execute_sum_ba();
+    else if (s == State::JMP) execute_jmp();
     else if (s == State::BRK) { // break pseudo instruction
         return false;
     }

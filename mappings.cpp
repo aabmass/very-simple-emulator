@@ -25,6 +25,9 @@ std::unordered_map<IRReg, State> ir_map = {
     /* arithmetic instructions here. these opcodes may change */
     {0x30, State::SUM_BA},
 
+    /* jmp/branch instructions here */
+    {0x80, State::JMP},
+
     /* special instructions here */
     // this guy is a pseudo instruction. Just for exiting the program in this
     // emulator

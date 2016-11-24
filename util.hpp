@@ -5,5 +5,6 @@
 #include <vector>
 
 std::vector<Byte> load_binary_file(std::string const& fname);
+Address create_addr_from_bytes(Byte addr_low, Byte addr_high);
 
 #endif /* end of include guard: UTIL_HPP_ESRDFTJX */

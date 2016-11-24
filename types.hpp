@@ -55,6 +55,8 @@ enum class State {
 
     SUM_BA,
 
+    JMP,
+
     BRK // the break pseudo instruction
 };
 
