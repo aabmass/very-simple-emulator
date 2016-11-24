@@ -28,3 +28,17 @@ std::vector<Byte> load_binary_file(std::string const& fname) {
 
     return vec;
 }
+
+Address create_addr_from_bytes(Byte addr_low, Byte addr_high) {
+    // build the address from the low and high bytes.
+    // Set equal to high byte, then shift it over by 8. Finally, or with
+    // the low byte to get the full address
+    Address a = addr_high;
+
+    a <<= 8;
+
+    // low byte
+    a |= addr_low;
+
+    return a;
+}

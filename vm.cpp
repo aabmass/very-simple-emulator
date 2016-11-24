@@ -1,4 +1,5 @@
 #include "vm.hpp"
+#include "util.hpp"
 
 VM::VM(std::vector<Byte> const& rom_contents) :
     proc({0, 0, 0, 0, 0, 0}),
@@ -46,16 +47,7 @@ Byte VM::get_mem(Address a) {
 }
 
 Byte VM::get_mem(Byte addr_low, Byte addr_high) {
-    // build the address from the low and high bytes.
-    // Set equal to high byte, then shift it over by 8. Finally, or with
-    // the low byte to get the full address
-    Address a = addr_high;
-
-    a <<= 8;
-
-    // low byte
-    a |= addr_low;
-
+    Address a = create_addr_from_bytes(addr_low, addr_high);
     return get_mem(a);
 }
 
