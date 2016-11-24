@@ -20,6 +20,7 @@ private:
     void execute_jmp();
     void execute_bne();
     void execute_sum_ba();
+    void execute_stdout_imd_addr();
 
 public:
     CPUController(VM& vm);

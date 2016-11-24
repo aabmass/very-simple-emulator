@@ -3,6 +3,8 @@
 #include "mappings.hpp"
 #include "util.hpp"
 
+#include <iostream>
+
 State CPUController::get_next_state(State s, IRReg ir) {
     if (s == State::IRLD)
         return ir_map[ir];
@@ -81,6 +83,20 @@ void CPUController::execute_sum_ba() {
     vm.proc.a = vm.proc.a + vm.proc.b;
 }
 
+void CPUController::execute_stdout_imd_addr() {
+    Byte addr_low = vm.get_mem(vm.proc.pc);
+    vm.pc_inc();
+    Byte addr_high = vm.get_mem(vm.proc.pc);
+
+    /* load the data and print it */
+    Byte data = vm.get_mem(addr_low, addr_high);
+
+    // std::cout will treat it as a char (byte), as it. This is okay!
+    std::cout << data;
+
+    vm.pc_inc();
+}
+
 bool CPUController::execute_instr() {
     if (s == State::IRLD) {
         vm.proc.ir = vm.get_mem(vm.proc.pc);
@@ -107,8 +123,11 @@ bool CPUController::execute_instr() {
         execute_increment();
     }
     else if (s == State::SUM_BA) execute_sum_ba();
+
     else if (s == State::JMP) execute_jmp();
     else if (s == State::BNE_X || s == State::BNE_Y) execute_bne();
+
+    else if (s == State::STDOUT_IMD_ADDR) execute_stdout_imd_addr();
     else if (s == State::BRK) { // break pseudo instruction
         return false;
     }

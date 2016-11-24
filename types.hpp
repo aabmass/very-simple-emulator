@@ -59,6 +59,7 @@ enum class State {
     BNE_X,
     BNE_Y,
 
+    STDOUT_IMD_ADDR,
     BRK // the break pseudo instruction
 };
 

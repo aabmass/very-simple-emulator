@@ -17,10 +17,10 @@ int main(int argc, char *argv[]) {
     // keep executing until the vm tells us to stop
     bool cont = true;
     while (cont) {
-        std::cout << vm << std::endl;
         cont = vm.execute_instr();
     }
 
+    std::cout << std::endl <<  "Finished running program! End state of VM:" << std::endl;
     std::cout << vm << std::endl;
 
     return 0;
