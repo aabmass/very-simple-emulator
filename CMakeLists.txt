@@ -8,7 +8,6 @@ set (CMAKE_CXX_STANDARD 14)
 set(SOURCES
     cpucontroller.cpp
     mappings.cpp
-    token.cpp
     types.cpp
     util.cpp
     vm.cpp
@@ -16,7 +15,6 @@ set(SOURCES
 set(HEADERS
     cpucontroller.hpp
     mappings.hpp
-    token.hpp
     types.hpp
     util.hpp
     vm.hpp
