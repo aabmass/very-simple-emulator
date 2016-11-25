@@ -2,6 +2,15 @@
 
 #include <fstream>
 #include <iterator>
+#include <sstream>
+
+std::string load_text_file(std::string const& fname) {
+    std::ifstream fs(fname);
+    std::stringstream buf;
+    buf << fs.rdbuf();
+
+    return buf.str();
+}
 
 std::vector<Byte> load_binary_file(std::string const& fname) {
     // open the file:
