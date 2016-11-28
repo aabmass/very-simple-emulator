@@ -1,6 +1,6 @@
 #include "mappings.hpp"
 
-std::unordered_map<IRReg, State> ir_map = {
+std::unordered_map<IRReg, State, EnumClassHash> ir_map = {
     /* noop */
     {0x00, State::NOOP},
 
@@ -39,7 +39,7 @@ std::unordered_map<IRReg, State> ir_map = {
     {0xFF, State::BRK}
 };
 
-std::unordered_map<State, RegisterName> reg_for_state = {
+std::unordered_map<State, RegisterName, EnumClassHash> reg_for_state = {
     {State::LD_IMD_A, RegisterName::A},
     {State::LD_IMD_B, RegisterName::B},
     {State::LD_IMD_X, RegisterName::X},
